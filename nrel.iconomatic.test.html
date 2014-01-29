@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>Iconomatic Tester</title>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.js"></script>
+<script>
+$(document).ready( function() {
+	//label the li's
+	$('li').each( function() {
+		var idx = $(this).index();
+		$(this).attr( 'id', idx );
+
+		var href = $(this).children("a").attr('href');
+		$(this).append('  ['+ href + ']');
+	});
+
+	//add fake ajax event handler
+	$('#form-get').on('submit',function(){
+		var deferredObj = $.ajax({
+				type: 'GET'
+				,url: 'http://nreldev.nrel.gov/includes/js/iconomatic/nrel.iconomatic.ajaxtest.html'
+		});
+
+
+		// success callback
+		deferredObj.done(function(html){
+			$('ol').append(html);
+		});
+
+		return false;
+	});
+
+	// handler for jquery load event
+	$('#form-load input').on('click',function(){
+		$('#list-o-files-container').load('nrel.iconomatic.ajaxtest.html #list-o-files');
+		return false;
+	});
+	
+	// handler for generic add
+	$('#form-add').on('click', function(){
+		$('#container-add').append('<p>New content appended</p>');	
+	});
+});
+</script>
+
+
+<script src="nrel.iconomatic.jquery.js"></script>
+<script>
+$(document).ready( function() {
+
+		var myFileTypes = {
+			"avi": {
+				"extension": "avi",
+				"path": "http://www.nrel.gov/images/icon_video.gif",
+				"type": "Video"
+			},
+			"doc": {
+					"extension": "doc",
+					"path": "http://www.nrel.gov/images/icon_word.gif",
+					"type": "Microsoft Word"
+			},
+			"docms": {
+					"extension": "doc",
+					"path": "http://www.nrel.gov/images/icon_word.gif",
+					"type": "Microsoft Word"
+			}
+		}
+
+		$('body').iconomatic({
+
+				manualMode:  true
+				,iconClass:  'fileicon2'
+				,dataAttr:   'data-foo'
+				//,filesObj:   myFileTypes
+				,mergefilesObj: true
+				,ajax:       true
+
+		});
+
+});
+</script>
+<style type="text/css">
+a[name=jsLink] {
+	color:blue;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.fileicon,
+.fileicon2 {
+    vertical-align:baseline;
+    margin-left: 3px;
+}
+a[data-type="invalid"] {
+    background-color: yellow;
+
+}
+</style>
+</head>
+
+<body>
+<h3>Test cases</h3>
+<ol start="0">
+<li><a data-type="valid"   href="some.avi">AVI link</a></li>
+<li><a data-type="valid"   href="some.pdf">PDF link</a></li>
+<li><a data-type="valid"   href="some.foo" data-iconomatic="pdf">A .foo link (has PDF data attr)</a></li>
+<li><a data-type="valid"   href="some.avi" data-iconomatic="pdf">A conflicting .avi link (has PDF data attr)</a></li>
+<li><a data-type="valid"   href=""         data-iconomatic="pdf">A link with a blank href (has PDF data attr)</a></li>
+<li><a data-type="valid"   name="jsLink"   data-iconomatic="doc" onclick="window.location='foo.pdf'">A link with no href (has DOC data attr)</a></li>
+<li><a data-type="invalid" href="blah">a link with a weird href and no data attr</a></li>
+<li><a data-type="invalid" href="blah.html">a link to an html page</a></li>
+<li><a data-type="invalid" name="" class="">A link with no href and no data attr</a></li>
+<li><a data-type="valid"   href="some.docms">Custom MS link</a></li>
+<li><a data-type="valid"   href="some.foo" data-foo="pdf">A .foo link with a custom data attr (data-foo=pdf)</a></li>
+</ol>
+
+
+<hr>
+<form action="" method="" id="form-get">
+<input type="submit" value="AJAX get">
+</form>
+
+<hr>
+<form action="" method="" id="form-load">
+<input type="button" value="jQ .load()">
+</form>
+
+<div id="list-o-files-container">
+jQ.load will go here...
+</div>
+
+<hr>
+<form action="" method="" id="form-add">
+<input type="button" value="jquery (non ajax) append dom node">
+</form>
+<div id="container-add"></div>
+
+</body>
+</html>
