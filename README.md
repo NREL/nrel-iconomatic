@@ -1,7 +1,9 @@
-nrel-iconomatic
+Iconomatic
 ===============
 
-Detect links to native files and append the proper icon image after the link
+Detect links to native files and append the proper icon image.
 
 
-Updating the old script to include new AJAX detection, manual overrides, custom file types, and encasulation using jQuery plugin design pattern.
+This is an update to the old script to include new AJAX detection, manual overrides, custom file types, and encapsulation using jQuery plugin design pattern.
+
+
