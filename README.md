@@ -37,6 +37,13 @@ By default, both ```ajax``` and ```dataMode``` are disabled.
 The ```ajax``` option may not work in all browsers. MutationObserver is a DOM4 spec.  
 For support see: http://caniuse.com/mutationobserver
 
+The ```dataMode / dataAttr``` options are useful for hyperlinks that have non-normative href attributes for their filetype, or are controlled by javascript.  
+For example, these links would not be labeled without ```dataMode:true```:    
+```html
+<a data-iconomatic="pdf" href="http://bit.ly/12345">Some PDF</a>
+<a data-iconomatic="pdf" href="#" onclick="downloadfunction()">Some PDF</a>
+```  
+
 The default file types are:
 ```js
 var fileTypes = {
