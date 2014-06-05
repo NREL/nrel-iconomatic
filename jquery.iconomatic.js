@@ -7,7 +7,6 @@
 ;(function ( $, window, document, undefined ) {
 
     'use strict';
-    /* global $: false */
 
     var path = '//www.nrel.gov/images/';
 
@@ -65,7 +64,7 @@
 
             context = $('body');    // todo: move this into settings
 
-            links = this.getLinks( context )
+            links = this.getLinks( context );
             this.addIcons( links );
 
             if( this.options.ajax ) {
@@ -98,7 +97,7 @@
 
                 href = $(link).attr('href');
 
-                if( typeof href !== "undefined" && href !== null && href !== "" ) {
+                if( typeof href !== 'undefined' && href !== null && href !== '' ) {
 
                     ext = href.toLowerCase().split('.').splice( -1, 1 ).toString(); // this could be more elegant
 
@@ -130,17 +129,24 @@
          *
          */
         enableAjax: function(){
-            var self = this,
-                links;
+            var links,
+                MutationObserver,
+                region,
+                observer,
+                self = this;
 
-            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-            var region   = document.querySelector('body');
-            var observer = new MutationObserver( function(mutations) {
+            if( window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver ) {
+                MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            } else {
+                return true; // BAIL ON <IE11
+            }
+
+            region   = document.querySelector('body');
+            observer = new MutationObserver( function(mutations) {
 
                 mutations.forEach( function(mutation) {
                     if (mutation.type === 'childList') {
-
-                        links = self.getLinks( mutation.target )
+                        links = self.getLinks( mutation.target );
                         self.addIcons( links );
                     }
                 });
@@ -160,14 +166,17 @@
             var opts = this.options;
 
             $(links).each( function( idx, link ){
+                var fileType,
+                    thePath,
+                    imgAttrs;
 
-                var fileType = $(link).data('iconomatic-tagged');
+                fileType = $(link).data('iconomatic-tagged');
 
-                var thePath  = ( typeof opts.filesObj[fileType] !== "undefined" ) ?  opts.filesObj[fileType].path : false;
+                thePath  = ( typeof opts.filesObj[fileType] !== 'undefined' ) ?  opts.filesObj[fileType].path : false;
 
                 if( thePath ) {
 
-                    var imgAttrs = {
+                    imgAttrs = {
                         'class': opts.iconClass,
                         'alt'  : opts.filesObj[fileType].type,
                         'src'  : thePath
@@ -182,8 +191,8 @@
 
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Iconomatic( this, options ));
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, new Iconomatic( this, options ));
             }
         });
     };
