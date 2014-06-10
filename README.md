@@ -31,10 +31,10 @@ var defaults = {
     ,filesObj:  fileTypes    // an object that lists the file types to label with icons (see structure below)
 };
 ```
-## Notes  
-By default, both ```ajax``` and ```dataMode``` are disabled.   
+## Notes
+By default, both ```ajax``` and ```dataMode``` are disabled.
 
-The ```ajax``` option may not work in all browsers. MutationObserver is a DOM4 spec.  
+The ```ajax``` option may not work in all browsers. MutationObserver is a DOM4 spec.
 For support see: http://caniuse.com/mutationobserver
 
 The default file types are:
@@ -63,3 +63,7 @@ var fileTypes = {
 
 ## Dependencies
 jQuery ( Tested with 1.7 and 1.11)
+
+## DEV Dependencies
+Grunt
+grunt-contrib-uglify
