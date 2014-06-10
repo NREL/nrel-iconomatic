@@ -1,4 +1,4 @@
-/*
+/*!
 *  Project: Iconomatic
 *  Description: Detect links to native files and append the proper icon image after the link
 *  Author: Michael Oakley
@@ -165,7 +165,9 @@
         addIcons: function( links ) {
             var opts = this.options;
 
-            $(links).each( function( idx, link ){
+            $(links).filter(function() {
+                return $(this).has('img').length === 0; // don't label things link lightboxes
+            }).each( function( idx, link ){
                 var fileType,
                     thePath,
                     imgAttrs;
