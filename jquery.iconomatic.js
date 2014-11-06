@@ -124,7 +124,7 @@
         },
 
         /*
-         *  Use the mutation observer to watch for changes in our document.
+         *  Use the mutation observer to watch for changes in our doc.
          *  Find the Links and add the icons in the changed region.
          *
          */
