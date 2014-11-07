@@ -8,28 +8,26 @@
 
     'use strict';
 
-    var path = '//www.nrel.gov/images/';
-
     // Default file types to label with icons
     var fileTypes = {
-          'avi':  { 'path': path + 'icon_video.gif',      'type': 'Video'}
-        , 'doc':  { 'path': path + 'icon_word.gif',       'type': 'Microsoft Word'}
-        , 'docx': { 'path': path + 'icon_word.gif',       'type': 'Microsoft Word'}
-        , 'gif':  { 'path': path + 'icon_image.gif',      'type': 'GIF'}
-        , 'jpg':  { 'path': path + 'icon_image.gif',      'type': 'JPG'}
-        , 'm3u':  { 'path': path + 'icon_audio.gif',      'type': 'Audio'}
-        , 'mov':  { 'path': path + 'icon_video.gif',      'type': 'Video'}
-        , 'mp3':  { 'path': path + 'icon_audio.gif',      'type': 'Audio'}
-        , 'mpg':  { 'path': path + 'icon_video.gif',      'type': 'Video'}
-        , 'mpeg': { 'path': path + 'icon_video.gif',      'type': 'Video'}
-        , 'pdf':  { 'path': path + 'icon_pdf.gif',        'type': 'PDF'}
-        , 'ppt':  { 'path': path + 'icon_powerpoint.gif', 'type': 'Microsoft PowerPoint'}
-        , 'pptx': { 'path': path + 'icon_powerpoint.gif', 'type': 'Microsoft PowerPoint'}
-        , 'wmv':  { 'path': path + 'icon_video.gif',      'type': 'Video'}
-        , 'xls':  { 'path': path + 'icon_excel.gif',      'type': 'Microsoft Excel'}
-        , 'xlsx': { 'path': path + 'icon_excel.gif',      'type': 'Microsoft Excel'}
-        , 'xlsm': { 'path': path + 'icon_excel.gif',      'type': 'Microsoft Excel'}
-        , 'zip':  { 'path': path + 'icon_zip.gif',        'type': 'ZIP Archive'}
+          'avi' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'doc' : { 'class' : 'fa-file-word-o',       'type' : 'Microsoft Word'}
+        , 'docx': { 'class' : 'fa-file-word-o',       'type' : 'Microsoft Word'}
+        , 'gif' : { 'class' : 'fa-file-image-o',      'type' : 'GIF'}
+        , 'jpg' : { 'class' : 'fa-file-image-o',      'type' : 'JPG'}
+        , 'm3u' : { 'class' : 'fa-file-audio-o',      'type' : 'Audio'}
+        , 'mov' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'mp3' : { 'class' : 'fa-file-audio-o',      'type' : 'Audio'}
+        , 'mpg' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'mpeg': { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'pdf' : { 'class' : 'fa-file-pdf-o',        'type' : 'PDF'}
+        , 'ppt' : { 'class' : 'fa-file-powerpoint-o', 'type' : 'Microsoft PowerPoint'}
+        , 'pptx': { 'class' : 'fa-file-powerpoint-o', 'type' : 'Microsoft PowerPoint'}
+        , 'wmv' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'xls' : { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
+        , 'xlsx': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
+        , 'xlsm': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
+        , 'zip' : { 'class' : 'fa-file-archive-o',    'type' : 'ZIP Archive'}
     };
 
 
@@ -69,7 +67,8 @@
 
             if( this.options.ajax ) {
                 this.enableAjax();
-            }},
+            }
+        },
 
         /*
          *  Inspect all <a> tags within our region
@@ -169,22 +168,21 @@
                 return $(this).has('img').length === 0; // don't label things link lightboxes
             }).each( function( idx, link ){
                 var fileType,
-                    thePath,
-                    imgAttrs;
+                    theClass,
+                    attrs;
 
                 fileType = $(link).data('iconomatic-tagged');
 
-                thePath  = ( typeof opts.filesObj[fileType] !== 'undefined' ) ?  opts.filesObj[fileType].path : false;
+                theClass  = ( typeof opts.filesObj[fileType] !== 'undefined' ) ?  opts.filesObj[fileType].class : false;
 
-                if( thePath ) {
+                if( theClass ) {
 
-                    imgAttrs = {
-                        'class': opts.iconClass,
-                        'alt'  : opts.filesObj[fileType].type,
-                        'src'  : thePath
+                    attrs = {
+                        'class' : opts.iconClass + ' fa ' + theClass
+                      , 'title' : opts.filesObj[fileType].type
                     };
 
-                    $( '<img />', imgAttrs ).appendTo(link); // finally do the work!
+                    $( '<i />', attrs ).appendTo(link); // finally do the work!
                 }
             });
         }
