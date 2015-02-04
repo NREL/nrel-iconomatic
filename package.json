@@ -1,6 +1,6 @@
 {
   "name": "iconomatic",
-  "author": "Michael Oakley",
+  "author": "Michael Oakley <michael.oakley@nrel.gov>",
   "version": "1.0.0",
   "description": "Iconomatic",
   "main": "jquery.iconomatic.js",
