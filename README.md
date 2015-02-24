@@ -17,7 +17,7 @@ Include the scripts
 Initialize the plugin
 ```js
 $(document).ready( function() {
-  $('body').iconomatic()
+  $('body').iconomatic();
 });
 ```
 ## Options
