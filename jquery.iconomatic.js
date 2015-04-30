@@ -24,6 +24,7 @@
         , 'ppt' : { 'class' : 'fa-file-powerpoint-o', 'type' : 'Microsoft PowerPoint'}
         , 'pptx': { 'class' : 'fa-file-powerpoint-o', 'type' : 'Microsoft PowerPoint'}
         , 'wmv' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
+        , 'txt' : { 'class' : 'fa-file-text-o',       'type' : 'Text'}
         , 'xls' : { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
         , 'xlsx': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
         , 'xlsm': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}

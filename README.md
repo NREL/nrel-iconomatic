@@ -59,6 +59,7 @@ mpeg
 pdf
 ppt
 pptx
+txt
 wmv
 xls
 xlsx
