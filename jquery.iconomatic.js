@@ -1,9 +1,3 @@
-/*!
-*  Project: Iconomatic
-*  Description: Detect links to native files and append the proper icon image after the link
-*  Author: Michael Oakley
-*  License: MIT
-*/
 ;(function ( $, window, document, undefined ) {
 
     'use strict';

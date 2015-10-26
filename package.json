@@ -1,8 +1,9 @@
 {
-  "name": "iconomatic",
+  "name": "Iconomatic",
   "author": "Michael Oakley <michael.oakley@nrel.gov>",
-  "version": "1.0.0",
-  "description": "Iconomatic",
+  "version": "2.0.0",
+  "description": "Detect links to native files and append the proper icon image after the link",
+  "license": "MIT",
   "main": "jquery.iconomatic.js",
   "scripts": {
     "test": "echo \"Testing?  \" && exit 1"
