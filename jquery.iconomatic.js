@@ -20,6 +20,7 @@
         , 'wmv' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
         , 'txt' : { 'class' : 'fa-file-text-o',       'type' : 'Text'}
         , 'xls' : { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
+        , 'xlsb': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
         , 'xlsx': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
         , 'xlsm': { 'class' : 'fa-file-excel-o',      'type' : 'Microsoft Excel'}
         , 'zip' : { 'class' : 'fa-file-archive-o',    'type' : 'ZIP Archive'}
