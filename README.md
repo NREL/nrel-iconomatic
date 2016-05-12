@@ -54,6 +54,7 @@ jpg
 m3u
 mov
 mp3
+mp4 
 mpg
 mpeg
 pdf

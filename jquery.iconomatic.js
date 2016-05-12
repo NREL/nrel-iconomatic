@@ -12,6 +12,7 @@
         , 'm3u' : { 'class' : 'fa-file-audio-o',      'type' : 'Audio'}
         , 'mov' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
         , 'mp3' : { 'class' : 'fa-file-audio-o',      'type' : 'Audio'}
+        , 'mp4' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
         , 'mpg' : { 'class' : 'fa-file-video-o',      'type' : 'Video'}
         , 'mpeg': { 'class' : 'fa-file-video-o',      'type' : 'Video'}
         , 'pdf' : { 'class' : 'fa-file-pdf-o',        'type' : 'PDF'}
