@@ -1,0 +1,15 @@
+{
+    "name": "nrel/nrel-iconomatic",
+    "description": "NREL javascript icon generator for links.",
+    "type": "component",
+    "require": {
+        "robloach/component-installer": "*"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Michael Oakley",
+            "role": "developer"
+        }
+    ]
+}

@@ -1,16 +1,16 @@
 {
-  "name": "Iconomatic",
+  "name": "@nrel/nrel-iconomatic",
   "author": "Michael Oakley <michael.oakley@nrel.gov>",
-  "version": "2.0.0",
+  "version": "1.0.4",
   "description": "Detect links to native files and append the proper icon image after the link",
-  "license": "MIT",
+  "license": "GPL-2.0+",
   "main": "jquery.iconomatic.js",
   "scripts": {
     "test": "echo \"Testing?  \" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.nrel.gov/communications/nrel-iconomatic.git"
+    "url": "git+https://github.com/NREL/nrel-iconomatic.git"
   },
   "keywords": [
     "icons",
@@ -20,5 +20,12 @@
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-uglify": "^0.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/NREL/nrel-iconomatic/issues"
+  },
+  "homepage": "https://github.com/NREL/nrel-iconomatic#readme",
+  "directories": {
+    "test": "tests"
   }
 }
